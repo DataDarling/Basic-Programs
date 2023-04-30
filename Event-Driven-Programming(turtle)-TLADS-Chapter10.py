@@ -1,4 +1,4 @@
-#T.L.A.D.S - Chapter 10 - Event-Driven Programming(turtle)
+#T.L.A.D.S- Chapter 10 - Event-Driven Programming(turtle)
 
 import turtle
 
