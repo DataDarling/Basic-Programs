@@ -1,7 +1,5 @@
 # Prolog
 # Author: Darling Ngoh
-# Email: dngoh1@student.gsu.edu
-# Section:004
 '''
  Purpose:
     This program will present menu choices from a restaurant to a customer, and calculate
