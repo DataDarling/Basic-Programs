@@ -1,4 +1,4 @@
-# Welcome to event-driven practice
+# Welcome to the event-driven practice
 # File: turtle event driven practice.py
 # Author: Darling
 #
