@@ -1,0 +1,47 @@
+# Author: Darling Ngoh 
+# Email: dngoh1@student.gsu.edu
+'''
+Purpose:
+    This program showcases a tkinter application that includes
+    an Entry Widget and a Text Widget as well as Bind key press events.
+'''
+
+#import and initialize GUI API using pyhton library tkinter
+from tkinter import Tk, Label, Entry, Text
+from tkinter.messagebox import showinfo
+root = Tk()
+
+#label for user instructions
+label = Label(root, text='Enter something')
+label.grid(row=0, column=0)
+
+#entry
+box_input = Entry(root)
+box_input.grid(row=0, column=1)
+
+#text widget for displaying results 
+txt = Text(master=root, width=40, height = 10)
+txt.grid(row=1,column=0, columnspan= 3)
+
+#function defining conditional output given the user input data type
+def record(event):
+    user_input = event.keysym
+    message = ''
+    if type(user_input) == str:
+        if len(user_input) > 1:
+            message = ('It is a non-alphanumeric key.')
+        elif user_input ==  user_input.upper():
+            if user_input.isnumeric():
+                message =('It is a number.')
+            else:
+                message =('It is an uppercase letter.')
+        else:
+            message =('It is a lowercase letter.')
+        
+    print (message)
+    txt.insert('1.0','\n'+message)
+
+#binding user input event
+box_input.bind('<KeyPress>', record)
+
+root.mainloop()
