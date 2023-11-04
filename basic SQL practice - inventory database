@@ -1,0 +1,60 @@
+# File: DARLING_NGOH_Lab9.py
+# Student: Darling Ngoh
+# Course Name: Principles of Computer SCI II
+# Date:10/19/23
+'''
+Description of Program:
+    A python inventory database program using sqlite3 
+'''
+
+#import sqlite3
+import sqlite3
+
+#establish connection with sqlite database
+conn = sqlite3.connect('store_inventory.db')
+
+#execute sql statements and fetch data
+cursor = conn.cursor()
+
+
+#initialize grocery table in store_inventory database
+command = 'CREATE TABLE IF NOT EXISTS GROCERY (\
+            ProductID integer PRIMARY KEY,\
+            ProductName TEXT,\
+            UnitePrice FLOAT,\
+            Quantity FLOAT)'
+
+cursor.execute(command)
+
+#insert 3 product rows with given input data
+command = "INSERT INTO GROCERY VALUES (001, 'Egg', 2.0, 23)"
+cursor.execute(command)
+
+command = "INSERT INTO GROCERY VALUES (002, 'Milk', 4.0, 30)"
+cursor.execute(command)
+
+command = "INSERT INTO GROCERY VALUES (003, 'Rice', 19.99, 10)"
+cursor.execute(command)
+
+command = "SELECT * FROM GROCERY"
+cursor.execute(command)
+
+#printing table as list
+print(cursor.fetchall())
+
+#fetching productnames whose unitprice is between 1.0 and 5.0
+command = "SELECT ProductName FROM GROCERY WHERE UnitePrice BETWEEN 1.0 and 5.0"
+cursor.execute(command)
+
+#printing productnames whose unitprice is between 1.0 and 5.0
+print(cursor.fetchall())
+
+#fetching sum of all products in inventory table
+command = "SELECT SUM(UnitePrice * Quantity) FROM GROCERY"
+cursor.execute(command)
+
+#printing sum of all products in inventory table
+print(cursor.fetchall())
+
+
+
