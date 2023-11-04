@@ -1,0 +1,25 @@
+# Author: Darling Ngoh
+# Date:11/2/23
+'''
+Prolog: Practice with numpy
+'''
+#importing numpy package
+import numpy as np
+
+#setting up matrices of 4,5 with values 0
+arr = np.full((4,5),0)
+#adding a row of value 7 after first row
+arr1 = np.insert(arr,1,7,0)
+#adding a column of value 5 after first column
+arr2 = np.insert(arr1,1,5,1)
+#delete first row
+arr3 = np.delete(arr2,0,0)
+#delete first column
+arr4 = np.delete(arr3,0,1)
+#sort array along columns in ascending order
+arr5 = np.sort(arr4,0)
+#flatten arrow based on row major
+arr6 = np.ravel(arr5,order='C')
+
+#print program output
+print(arr6)
