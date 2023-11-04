@@ -1,0 +1,58 @@
+# Author: Darling Ngoh
+# Date:10/5/23
+'''
+Description of Program:
+    A python program that reads from a file, anlyses some components of the file...
+    and prints the results in a new file
+'''
+
+
+#initializing total words count function
+def tot_words(filename):
+    user_file = open(filename,'r')
+    user_list = user_file.readlines()
+    count = 0
+    
+    for line in user_list[:28]:
+        line_words = line.split()
+        for char in line_words:
+            count += 1
+    return count
+
+
+def tot_line(filename):
+    user_file = open(filename,'r')
+    user_list = user_file.readlines()
+    count = 0
+    
+    for line in user_list[:28]:
+        count += 1
+    return count
+
+def num_perline(filename):
+    user_file = open(filename,'r')
+    user_lines = user_file.readlines()
+
+    intro = str(user_lines[29:30])[2:-4]
+
+    big_list = [intro,'\n',]
+    for line in user_lines[30:]:
+        line =(f'Line {line}')
+        big_list.append(line)
+    return big_list
+
+#bob = (num_perline('example.txt'))
+
+    
+def writing (filename):
+    user_file = open(filename,'w')
+    user_file.write(f"Total number of lines: {tot_line('example.txt')}\n")
+    user_file.write(f"Total number of words: {tot_words('example.txt')}\n")
+    holder = num_perline('example.txt')
+    holder[0] = 'Word count per line (line_number >> word_count):'
+
+    for line in holder:
+        user_file.write(line)
+    
+    
+writing('test file.txt')
