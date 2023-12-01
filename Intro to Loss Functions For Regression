@@ -1,0 +1,61 @@
+# Author: Darling Ngoh
+'''
+Purpose:
+    Computing various Loss functions for regression.
+    Mean Squared Error, RootMSE, and Mean Absolute Error.
+'''
+
+import math
+
+#average of the squared difference between observed and predicted values
+def computeMSE(observed, predicted):
+    avg_count = len(observed)
+    count = 0 #keep track of sum given difference of values in set
+
+    #compute sum difference for each relative index value in sets
+    for key in range(avg_count): #
+        count += (observed[key] - predicted[key]) ** 2
+
+    # average sum difference
+    mse = (1/avg_count)*count
+
+    return "%.2f" % mse
+
+#Square root of the mean squre error
+def computeRMSE(observed, predicted):
+    mse = float(computeMSE(observed, predicted))
+    rmse = math.sqrt(mse)
+
+    return "%.2f" % rmse
+
+#Absolute value of the difference between actual and predicted values
+def computeMAE(observed, predicted):
+    avg_count = len(observed)
+    count = 0  # keep track of sum given difference of values in set
+
+    # compute sum of absolute values given difference of relative index values in each set
+    for key in range(avg_count):  #
+        count += abs(observed[key] - predicted[key])
+
+    #compute average of sum absolute values
+    mae = (1 / avg_count) * count
+
+    return "%.2f" % mae
+
+'''
+Write driver code that calls the above methods and prints
+the MSE, RMSE, and MAE for the following input. (Round
+off the results to two decimal places)
+    observed = 4,5,12,5,7
+    predicted = 5,5,11,4,5
+'''
+#Driver code
+observed = 4,5,12,5,7
+predicted = 5,5,11,4,5
+
+def driver_code(first, second):
+    print(f'MSE = ', computeMSE(first, second))
+    print(f'RMSE = ', computeRMSE(first, second))
+    print(f'MAE = ', computeMAE(first, second))
+
+driver_code(observed,predicted)
