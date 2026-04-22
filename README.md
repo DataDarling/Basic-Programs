@@ -30,6 +30,7 @@ A collection of Python scripts and exercises covering fundamental programming co
   - [Event-Driven Programming (Turtle)](#event-driven-programming-turtle)
   - [Turtle Event-Driven Practice](#turtle-event-driven-practice)
   - [Intro to Loss Functions for Regression](#intro-to-loss-functions-for-regression)
+  - [Patient Health AI Helper](#patient-health-ai-helper)
 - [Running the Programs](#running-the-programs)
 - [License](#license)
 
@@ -427,6 +428,36 @@ MSE =  1.40
 RMSE =  1.18
 MAE =  1.00
 ```
+
+---
+
+### Patient Health AI Helper
+
+**File:** `patient_health_ai_app.py`
+
+A simple console app that collects basic patient health data and uses a lightweight AI-style scoring model to prioritize personalized best-practice recommendations.
+
+Inputs include:
+- Age and sex
+- Height and weight (for BMI)
+- Blood pressure
+- Resting heart rate
+- Fasting glucose
+- Sleep hours
+- Weekly physical activity
+- Smoking status
+
+Output includes:
+- A concise health summary
+- Top three individualized focus areas ranked by priority score
+- Practical lifestyle recommendations for each focus area
+
+**Run:**
+```bash
+python patient_health_ai_app.py
+```
+
+> Note: This tool is educational support and not a medical diagnosis or treatment plan.
 
 ---
 
